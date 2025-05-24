@@ -1,24 +1,22 @@
-import { useQueryClient } from "@tanstack/react-query";
 import usePokemonStore from "../store/PokemonStore";
+import "../styles/Card.css";
 
-export const Card = () => {
+interface CardProps {
+  shouldShowSearch: boolean;
+}
+
+export const Card: React.FC<CardProps> = ({ shouldShowSearch }) => {
   const pokemons = usePokemonStore((state) => state.pokemons);
-  const queryClient = useQueryClient();
-  const queryState = queryClient.getQueryState(["pokemons"]);
-  const isLoading = queryState?.status;
-
-  if (isLoading === "pending") {
-    return <span className="loader"></span>;
-  }
+  const pokemon = usePokemonStore((state) => state.pokemon);
 
   return (
-    <div className="card">
-      {pokemons.map((pokemon) => (
-        <div key={pokemon.name} className="card-item">
-          <h2>{pokemon.name}</h2>
+    <>
+      {(shouldShowSearch ? pokemon : pokemons).map((pokemon) => (
+        <div className="card" key={pokemon.name}>
           <img src={pokemon.url} alt={pokemon.name} />
+          <h3>{pokemon.name}</h3>
         </div>
       ))}
-    </div>
+    </>
   );
 };

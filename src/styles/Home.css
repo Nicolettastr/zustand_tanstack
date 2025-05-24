@@ -1,0 +1,49 @@
+.wrapper {
+  padding: 2rem 0.5rem;
+}
+
+.btn-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  gap: 16px;
+  padding: 16px;
+  justify-items: center;
+}
+
+.pagination_btn {
+  width: 15%;
+  max-width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: #e3e7eb;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.pagination_btn span {
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination_btn:hover {
+  color: white;
+  background-color: rgb(127, 127, 201);
+  transform: translateY(-2px);
+}

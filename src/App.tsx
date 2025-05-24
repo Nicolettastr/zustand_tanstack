@@ -1,28 +1,21 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import "./App.css";
+import { ThemeProvider } from "styled-components";
 import { Routers } from "./routes/Routers";
-
+import { useThemeStore } from "./store/ThemeStore";
+import { GlobalStyles } from "./styles/GlobalStyles";
+const queryClient = new QueryClient();
 function App() {
+  const themeStyle = useThemeStore((state) => state.themeStyle);
+
   return (
-    <QueryClientProvider
-      client={
-        new QueryClient({
-          // Configuración de React Query
-          // Puedes personalizar la configuración según tus necesidades
-          // Aquí se establece la configuración predeterminada para las consultas
-          defaultOptions: {
-            queries: {
-              refetchOnWindowFocus: false,
-              retry: false,
-            },
-          },
-        })
-      }
-    >
-      <Routers />
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+    <ThemeProvider theme={themeStyle}>
+      <QueryClientProvider client={queryClient}>
+        <GlobalStyles />
+        <Routers />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }
 
