@@ -8,16 +8,14 @@ import usePokemonStore from "../store/PokemonStore";
 import "../styles/Home.css";
 
 export const Home = () => {
-  const { fetchPokemons, next, previous, pokemons, searchedPokemon } =
-    usePokemonStore(
-      useShallow((state) => ({
-        fetchPokemons: state.fetchPokemons,
-        next: state.next,
-        previous: state.previous,
-        pokemons: state.pokemons,
-        searchedPokemon: state.searchedPokemon,
-      }))
-    );
+  const { fetchPokemons, next, previous, searchedPokemon } = usePokemonStore(
+    useShallow((state) => ({
+      fetchPokemons: state.fetchPokemons,
+      next: state.next,
+      previous: state.previous,
+      searchedPokemon: state.searchedPokemon,
+    }))
+  );
 
   const { pokemon: searchResult, isLoading: isSearching } = useSearchPokemon();
 
