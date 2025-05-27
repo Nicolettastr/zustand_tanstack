@@ -10,7 +10,6 @@ interface CardProps {
 export const Card: React.FC<CardProps> = ({ shouldShowSearch }) => {
   const pokemons = usePokemonStore((state) => state.pokemons);
   const pokemon = usePokemonStore((state) => state.pokemon);
-  const favorites = useFavoritesStore((state) => state.favorites);
   const addFavorite = useFavoritesStore((state) => state.addFavorite);
   const removeFavorite = useFavoritesStore((state) => state.removeFavorite);
   const isFavorite = useFavoritesStore((state) => state.isFavorite);
