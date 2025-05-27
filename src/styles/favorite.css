@@ -1,0 +1,70 @@
+.card-favorite {
+  background-color: #192438;
+  border-radius: 10px;
+  width: 100px;
+  height: 140px;
+  padding: 20px 10px 10px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  font-family: sans-serif;
+  padding: 1rem;
+  flex: 0 0 auto;
+}
+
+.card-favorite::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-color: #2d3748;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.card-favorite::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-color: #2d3748;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 50%;
+  filter: invert(10px);
+  z-index: 0;
+}
+
+.image-wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.image-wrapper img {
+  width: 100%;
+  max-width: 80px;
+  z-index: 1;
+  position: relative;
+}
+
+.card-favorite h3 {
+  margin-top: 8px;
+  font-size: 14px;
+  z-index: 1;
+  position: relative;
+}

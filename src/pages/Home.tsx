@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import { GrNext, GrPrevious } from "react-icons/gr";
 import { useShallow } from "zustand/shallow";
 import { Card } from "../components/Card";
+import { CardFavorite } from "../components/CardFavorite";
 import Header from "../components/Header";
 import { useSearchPokemon } from "../hooks/useSearchPokemon";
+import useFavoritesStore from "../store/FavoriteStore";
 import usePokemonStore from "../store/PokemonStore";
 import "../styles/Home.css";
 
@@ -17,8 +19,10 @@ export const Home = () => {
     }))
   );
 
-  const { pokemon: searchResult, isLoading: isSearching } = useSearchPokemon();
+  const clearFavorites = useFavoritesStore((state) => state.clearFavorites);
+  const favorites = useFavoritesStore((state) => state.favorites);
 
+  const { pokemon: searchResult, isLoading: isSearching } = useSearchPokemon();
   const shouldShowSearch = !!searchedPokemon && !!searchResult;
   const shouldShowEmpty = searchedPokemon && !searchResult;
 
@@ -29,6 +33,14 @@ export const Home = () => {
   return (
     <div className="wrapper">
       <Header />
+      <div className="favorites-wrapper">
+        {favorites.length > 0 && (
+          <button className="delete-fav-btn" onClick={() => clearFavorites()}>
+            Delete all
+          </button>
+        )}
+        <CardFavorite />
+      </div>
       {isSearching ? (
         <span className="loader"></span>
       ) : shouldShowEmpty ? (

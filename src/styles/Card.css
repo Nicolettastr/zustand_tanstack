@@ -41,3 +41,12 @@
   text-transform: capitalize;
   text-align: center;
 }
+
+.heart-button {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}

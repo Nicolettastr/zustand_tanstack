@@ -11,7 +11,7 @@
 
 .card_container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 16px;
   padding: 16px;
   justify-items: center;
@@ -45,5 +45,48 @@
 .pagination_btn:hover {
   color: white;
   background-color: rgb(127, 127, 201);
+  transform: translateY(-2px);
+}
+
+.favorites-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 90%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px;
+  scroll-behavior: smooth;
+  place-self: center;
+}
+
+.favorites-wrapper::-webkit-scrollbar {
+  height: 10px;
+}
+
+.favorites-wrapper::-webkit-scrollbar-thumb {
+  background-color: #4a5568;
+  border-radius: 6px;
+}
+
+.favorites-wrapper::-webkit-scrollbar-track {
+  background-color: #1a202c;
+}
+
+.delete-fav-btn {
+  min-width: 80px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: #e3e7eb;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.delete-fav-btn:hover {
+  color: white;
+  background-color: rgb(252, 89, 87);
   transform: translateY(-2px);
 }
